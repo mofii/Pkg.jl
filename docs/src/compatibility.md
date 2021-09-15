@@ -21,15 +21,30 @@ The format of the version specifier is described in detail below.
 ## Version specifier format
 
 Similar to other package managers, the Julia package manager respects [semantic versioning](https://semver.org/) (semver).
-As an example, a version specifier given as e.g. `1.2.3` is therefore assumed to be compatible with the versions `[1.2.3 - 2.0.0)` where `)` is a non-inclusive upper bound.
+As an example, a version specifier given as e.g. 
+```toml
+Example = "1.2.3"
+```
+is therefore assumed to be compatible with the non-breaking versions `[1.2.3 - 2.0.0)` where `[` is an inclusive lower bound and `)` is a non-inclusive upper bound.
 More specifically, a version specifier is either given as a **caret specifier**, e.g. `^1.2.3`  or as a **tilde specifier**, e.g. `~1.2.3`.
-Caret specifiers are the default and hence `1.2.3 == ^1.2.3`. The difference between a caret and tilde is described in the next section.
+Caret specifiers are the default and hence 
+```toml
+Example = "1.2.3"
+```
+is the same as
+```toml
+Example = "^1.2.3"
+```
+The difference between a caret and tilde is described in the next section.
 The union of multiple version specifiers can be formed by comma separating individual version specifiers, e.g.
 ```toml
-[compat]
 Example = "1.2, 2"
 ```
-will result in `[1.2.0, 3.0.0)`.  Note leading zeros are treated differently, e.g. `Example = "0.2, 1"` would only result in `[0.2.0-0.3.0, 1.0.0-2.0.0]`. See the next section for more information on versions with leading zeros.
+will result in `[1.2.0, 3.0.0)`.  Note leading zeros are treated differently, e.g. 
+```toml
+Example = "0.2, 1"
+```
+would only result in `[0.2.0-0.3.0, 1.0.0-2.0.0]`. See the next section for more information on versions with leading zeros.
 
 ### [Behavior of versions with leading zeros (0.0.x and 0.x.y)](@id compat-pre-1.0)
 
