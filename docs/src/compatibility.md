@@ -35,7 +35,7 @@ is the same as
 ```toml
 Example = "^1.2.3"
 ```
-The difference between a caret and tilde is described in the next section.
+The usage of [caret](#caret-specifiers) and [tilde](#tilde-specifiers) specifiers is described in detail in their own sections below.
 The union of multiple version specifiers can be formed by comma separating individual version specifiers, e.g.
 ```toml
 Example = "1.2, 2"
